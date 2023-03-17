@@ -912,17 +912,17 @@ short num_barrier = 5;
 
 int main() {
 
+	// 局部实例化-食物（结束-析构-销毁）  
+	CnormalFood nor_food(num_nor_food);
+	CshitGround shit(num_shit);
+
+
+	// 局部实例化-地形（结束-析构-销毁）
+	CiceGround ice(num_ice);
+	CfireGround fire(num_fire);
+	Cbarrier barrier(num_barrier);
+
 	while (true){
-
-		// 局部实例化-食物（结束-析构-销毁）  
-		CnormalFood nor_food(num_nor_food);
-		CshitGround shit(num_shit);
-
-
-		// 局部实例化-地形（结束-析构-销毁）
-		CiceGround ice(num_ice);
-		CfireGround fire(num_fire);
-		Cbarrier barrier(num_barrier);
 
 		// 使用父类指针指向子类对象，批量管理调用子类虚函数
 		CrandomObj* p_obj[5];
@@ -938,8 +938,6 @@ int main() {
 		srand((unsigned int)time(NULL));
 
 		CgameDisplay game_display;
-
-
 
 
 		// 1. 主菜单
